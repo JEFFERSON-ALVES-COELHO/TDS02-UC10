@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\jefferson.acoelho\\Documents\\UC10 - AECIO\\TDS02-UC10\\01\\ControleEstoque\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{38B1D3B5-7098-46AB-86E0-C7B2CD666B96}|ControleEstoque.API\\ControleEstoque.API.csproj|c:\\users\\jefferson.acoelho\\documents\\uc10 - aecio\\tds02-uc10\\01\\controleestoque\\controleestoque.api\\models\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{38B1D3B5-7098-46AB-86E0-C7B2CD666B96}|ControleEstoque.API\\ControleEstoque.API.csproj|solutionrelative:controleestoque.api\\models\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{38B1D3B5-7098-46AB-86E0-C7B2CD666B96}|ControleEstoque.API\\ControleEstoque.API.csproj|c:\\users\\jefferson.acoelho\\documents\\uc10 - aecio\\tds02-uc10\\01\\controleestoque\\controleestoque.api\\controleestoque.api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
       "RelativeMoniker": "D:0:0:{38B1D3B5-7098-46AB-86E0-C7B2CD666B96}|ControleEstoque.API\\ControleEstoque.API.csproj|solutionrelative:controleestoque.api\\controleestoque.api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     }
@@ -19,7 +23,20 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "ControleEstoque.API",
+              "Title": "Usuario.cs",
+              "DocumentMoniker": "C:\\Users\\jefferson.acoelho\\Documents\\UC10 - AECIO\\TDS02-UC10\\01\\ControleEstoque\\ControleEstoque.API\\Models\\Usuario.cs",
+              "RelativeDocumentMoniker": "ControleEstoque.API\\Models\\Usuario.cs",
+              "ToolTip": "C:\\Users\\jefferson.acoelho\\Documents\\UC10 - AECIO\\TDS02-UC10\\01\\ControleEstoque\\ControleEstoque.API\\Models\\Usuario.cs",
+              "RelativeToolTip": "ControleEstoque.API\\Models\\Usuario.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAgwBoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-03T00:49:03.713Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ControleEstoque.API.csproj",
               "DocumentMoniker": "C:\\Users\\jefferson.acoelho\\Documents\\UC10 - AECIO\\TDS02-UC10\\01\\ControleEstoque\\ControleEstoque.API\\ControleEstoque.API.csproj",
               "RelativeDocumentMoniker": "ControleEstoque.API\\ControleEstoque.API.csproj",
               "ToolTip": "C:\\Users\\jefferson.acoelho\\Documents\\UC10 - AECIO\\TDS02-UC10\\01\\ControleEstoque\\ControleEstoque.API\\ControleEstoque.API.csproj",
