@@ -24,22 +24,4 @@ namespace ControleEstoque.API.Models
         [Required]
         public PerfilUsuario Perfil { get; set; }
     }
-
-    public class Cliente : Usuario // Propriedades específicas para clientes podem ser adicionadas aqui
-    {
-        [StringLength(14)]
-        public string Cpf { get; set; }
-    }
-
-    public class Caixa : Usuario  // Propriedades específicas para caixas podem ser adicionadas aqui
-    {
-        [StringLength(50)]
-        public string Turno { get; set; }
-    }
-
-    public class Gerente : Usuario // Propriedades específicas para gerentes podem ser adicionadas aqui
-    {
-        [StringLength(50)]
-        public string Setor { get; set; }
-    }
 }
