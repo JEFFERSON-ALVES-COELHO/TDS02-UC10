@@ -5,8 +5,9 @@ namespace ControleEstoque.API.Models
 {
     public class Produto
     {
-        [Key]   
-        public int Id{ get; set; }
+        [Key]
+        public int Id { get; set; }
+
         [Required, StringLength(100)]
         public string Nome { get; set; }
 
@@ -14,12 +15,12 @@ namespace ControleEstoque.API.Models
         public decimal Preco { get; set; }
 
         [Required]
-        public int QuantidadeEstoque { get; set; }
+        public int QauntidadeEstoque { get; set; }
 
         [ForeignKey("Fornecedor")]
         public int FornecedorId { get; set; }
-        public Fornecedor Fornecedor { get; set; } // Relacionamento com Fornecedor
+        public Fornecedor Fornecedor { get; set; }
 
-        public ICollection<ItemPedido> ItensPedido { get; set; } = new List<ItemPedido>(); // Relacionamento com ItemPedido
+        public ICollection<ItemPedido> ItensPedido { get; set; } = new List<ItemPedido>();
     }
 }

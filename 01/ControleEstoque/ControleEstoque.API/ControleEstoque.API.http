@@ -1,4 +1,4 @@
-@ControleEstoque.API_HostAddress = http://localhost:5062
+@ControleEstoque.API_HostAddress = http://localhost:5143
 
 GET {{ControleEstoque.API_HostAddress}}/weatherforecast/
 Accept: application/json

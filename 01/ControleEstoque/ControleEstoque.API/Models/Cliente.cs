@@ -2,11 +2,12 @@
 
 namespace ControleEstoque.API.Models
 {
-    public class Cliente : Usuario // Propriedades específicas para clientes podem ser adicionadas aqui
+    public class Cliente : Usuario
     {
         [StringLength(14)]
-        public string Cpf { get; set; }
+        public string CPF { get; set; }
 
-        public ICollection<Pedido> Pedido { get; set; } = new List<Pedido>(); // Relacionamento com Pedido
+        // Um cliente pode fazer vários pedidos
+        public ICollection<Pedido> Pedidos { get; set; } = new List<Pedido>();
     }
 }

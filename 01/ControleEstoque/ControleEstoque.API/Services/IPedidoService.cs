@@ -6,6 +6,6 @@ namespace ControleEstoque.API.Services
     {
         Task<Pedido?> ObterPedidoComDetalhesAsync(int pedidoId);
         Task<IEnumerable<Pedido>> ListarPedidosDoClienteAsync(int clienteId);
-        Task<Pedido> CriarPedidoAsync(int clienteId);
+        Task<Pedido> CriarPedidoAsync (int clienteId, List<ItemPedido> itens);
     }
 }
