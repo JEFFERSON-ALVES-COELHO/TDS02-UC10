@@ -9,45 +9,49 @@ namespace ControleEstoque.API.Controllers
     [ApiController]
     public class FornecedoresController : ControllerBase
     {
-
         private readonly IFornecedorService _fornecedorService;
 
         public FornecedoresController(IFornecedorService fornecedorService)
         {
             _fornecedorService = fornecedorService;
         }
+
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
             var fornecedores = await _fornecedorService.ObterTodosAsync();
             return Ok(fornecedores);
         }
-        [HttpGet("{id}")]
+
+        [HttpGet("{id}")] //recebe pela rota
         public async Task<IActionResult> GetById(int id)
         {
-            var fornecedor = await _fornecedorService.ObterPorIdAsync(id);
-            if (fornecedor == null)
-                return NotFound();
-            return Ok(fornecedor);
+            var result = await _fornecedorService.ObterPorIdAsync(id);
+
+            if (result == null) return NotFound();
+
+            return Ok(result);
         }
 
         [HttpPost]
         public async Task<IActionResult> Create([FromBody]CriarFornecedorDto dto)
         {
-            var fornecedor = await _fornecedorService.CriarAsync(dto);
-            return CreatedAtAction(nameof(GetById), new { id = fornecedor.Id }, fornecedor);
+            FornecedorDto result = await _fornecedorService.CriarAsync(dto);            
+            return Created(nameof(Create), result);
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> Update(int id, [FromBody]AtualizarFornecedorDto dto)
+        public async Task<IActionResult> Update(int id, AtualizarFornecedorDto dto)
         {
-            var existe = await _fornecedorService.ObterPorIdAsync(id);
-            if (existe == null) 
-                return NotFound();
+            if(id != dto.Id) return BadRequest();
 
-            await _fornecedorService.AtualizarAsync(id, dto);
+            var existe = await _fornecedorService.ObterPorIdAsync(id);
+            if (existe == null) return NotFound();
+
+            await _fornecedorService.AtualizarAsync(dto);
             return NoContent();
         }
+
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {

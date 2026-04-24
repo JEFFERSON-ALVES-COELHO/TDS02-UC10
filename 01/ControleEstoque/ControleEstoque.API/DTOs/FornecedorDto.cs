@@ -1,16 +1,12 @@
-﻿using ControleEstoque.API.Models;
-using System.ComponentModel.DataAnnotations;
-
-namespace ControleEstoque.API.DTOs
+﻿namespace ControleEstoque.API.DTOs
 {
     public class FornecedorDto
     {
         public int Id { get; set; }
         public string NomeFantasia { get; set; }
         public string CNPJ { get; set; }
-
-
     }
+
     public class CriarFornecedorDto
     {
         public string NomeFantasia { get; set; }
@@ -19,8 +15,7 @@ namespace ControleEstoque.API.DTOs
 
     public class AtualizarFornecedorDto
     {
+        public int Id { get; set; }
         public string NomeFantasia { get; set; }
-
-
     }
 }
