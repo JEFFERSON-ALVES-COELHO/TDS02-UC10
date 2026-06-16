@@ -9,6 +9,5 @@ namespace ControleEstoque.API.Services
         Task<ContaReceberDto> CriarAsync(CriarContaReceberDto dto);
         Task AtualizarAsync(AtualizarContaReceberDto dto);
         Task RemoverAsync(int id);
-        Task ObterPorClienteIdAsync(int clienteIdToken);
     }
 }

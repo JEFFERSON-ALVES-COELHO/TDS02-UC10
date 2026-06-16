@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ControleEstoque.API.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20260423003205_Inicial")]
+    [Migration("20260612004303_Inicial")]
     partial class Inicial
     {
         /// <inheritdoc />
@@ -36,11 +36,11 @@ namespace ControleEstoque.API.Migrations
                     b.Property<int>("ClienteId")
                         .HasColumnType("int");
 
-                    b.Property<DateOnly?>("DataPagamento")
-                        .HasColumnType("date");
+                    b.Property<DateTime?>("DataPagamento")
+                        .HasColumnType("datetime2");
 
-                    b.Property<DateOnly>("DataVencimento")
-                        .HasColumnType("date");
+                    b.Property<DateTime>("DataVencimento")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Descricao")
                         .IsRequired()
@@ -164,7 +164,7 @@ namespace ControleEstoque.API.Migrations
                     b.Property<decimal>("Preco")
                         .HasColumnType("decimal(10,2)");
 
-                    b.Property<int>("QauntidadeEstoque")
+                    b.Property<int>("QuantidadeEstoque")
                         .HasColumnType("int");
 
                     b.HasKey("Id");

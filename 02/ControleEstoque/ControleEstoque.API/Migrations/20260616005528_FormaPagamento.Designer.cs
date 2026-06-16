@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ControleEstoque.API.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20260609224926_Inicial")]
-    partial class Inicial
+    [Migration("20260616005528_FormaPagamento")]
+    partial class FormaPagamento
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -60,6 +60,26 @@ namespace ControleEstoque.API.Migrations
                     b.HasIndex("ClienteId");
 
                     b.ToTable("ContasReceber");
+                });
+
+            modelBuilder.Entity("ControleEstoque.API.Models.FormaPagamento", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<bool>("Ativo")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Nome")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("FormasPagamento");
                 });
 
             modelBuilder.Entity("ControleEstoque.API.Models.Fornecedor", b =>

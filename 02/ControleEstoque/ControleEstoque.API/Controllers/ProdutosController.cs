@@ -7,7 +7,7 @@ namespace ControleEstoque.API.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    [Authorize]
+    
     public class ProdutosController : ControllerBase
     {
         private readonly IProdutoService _produtoService;

@@ -59,6 +59,26 @@ namespace ControleEstoque.API.Migrations
                     b.ToTable("ContasReceber");
                 });
 
+            modelBuilder.Entity("ControleEstoque.API.Models.FormaPagamento", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<bool>("Ativo")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Nome")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("FormasPagamento");
+                });
+
             modelBuilder.Entity("ControleEstoque.API.Models.Fornecedor", b =>
                 {
                     b.Property<int>("Id")

@@ -128,10 +128,5 @@ namespace ControleEstoque.API.Services
                 await _context.SaveChangesAsync();
             }
         }
-
-        public Task ObterPorClienteIdAsync(int clienteIdToken)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

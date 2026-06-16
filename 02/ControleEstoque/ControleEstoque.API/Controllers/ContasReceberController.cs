@@ -19,15 +19,10 @@ namespace ControleEstoque.API.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "Gerente,Caixa")]
         public async Task<IActionResult> GetAll()
         {
-            var clienteIdClaim = User.FindFirst("ClienteId")?.Value;
-
-            if (!int.TryParse(clienteIdClaim, out var clienteIdToken))
-                return Unauthorized("ClienteId não encontrado no token.");
-
-            var contas = await _contaReceberService.ObterPorClienteIdAsync(clienteIdToken);
-
+            var contas = await _contaReceberService.ObterTodosAsync();
             return Ok(contas);
         }
 
@@ -37,15 +32,12 @@ namespace ControleEstoque.API.Controllers
             var conta = await _contaReceberService.ObterPorIdAsync(id);
             if (conta == null) return NotFound();
 
-            var clienteIdClaim = User.FindFirst("ClienteId")?.Value;
-
-            // Verifica se a conta pertence ao cliente autenticado
-            if (!int.TryParse(clienteIdClaim, out var clienteIdToken))
-                return Unauthorized("ClienteId não encontrado no token.");
-
-            if (conta.ClienteId != clienteIdToken)
-                return Forbid();
-
+            //if (User.IsInRole("Cliente")) // isso é outra forma de fazer a msm coisa
+            if(User.FindFirst(ClaimTypes.Role)?.Value == "Cliente")
+            {
+                var clienteId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+                if(clienteId != conta.ClienteId.ToString()) return Unauthorized();
+            }                       
 
             return Ok(conta);
         }
@@ -55,22 +47,16 @@ namespace ControleEstoque.API.Controllers
         public async Task<IActionResult> Create([FromBody] CriarContaReceberDto dto)
         {
             var novaConta = await _contaReceberService.CriarAsync(dto);
-
-            return CreatedAtAction(
-                nameof(GetById),
-                new { id = novaConta.Id },
-                novaConta);
+            return CreatedAtAction(nameof(GetById), new { id = novaConta.Id }, novaConta);
         }
 
         [HttpPut("{id}")]
         [Authorize(Roles = "Gerente,Caixa")]
         public async Task<IActionResult> Update(int id, [FromBody] AtualizarContaReceberDto dto)
         {
-            if (id != dto.Id)
-                return BadRequest("O ID da rota difere do ID da conta a receber.");
-
+            if (id != dto.Id) return BadRequest("O ID da rota difere do ID da conta a receber.");
+            
             await _contaReceberService.AtualizarAsync(dto);
-
             return NoContent();
         }
 
@@ -79,7 +65,6 @@ namespace ControleEstoque.API.Controllers
         public async Task<IActionResult> Delete(int id)
         {
             await _contaReceberService.RemoverAsync(id);
-
             return NoContent();
         }
     }

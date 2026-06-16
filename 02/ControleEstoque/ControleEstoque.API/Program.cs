@@ -6,7 +6,6 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Microsoft.OpenApi.Models;
-using FluentAssertions.Common;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,6 +20,7 @@ builder.Services.AddScoped<IFornecedorService, FornecedorService>();
 builder.Services.AddScoped<IPasswordService, PasswordService>();
 builder.Services.AddScoped<IUsuarioService, UsuarioService>();
 builder.Services.AddScoped<ITokenService, TokenService>();
+builder.Services.AddScoped<IFormaPagamentoService, FormaPagamentoService>();
 builder.Services.AddScoped<IContaReceberService, ContaReceberService>();
 builder.Services.AddControllers().AddJsonOptions(options =>
 {
@@ -94,13 +94,14 @@ app.UseAuthorization();
 
 app.MapControllers();
 
+
 // --- PRIMEIRA EXECUCAO: Seed do Adminstrador
 using (var scope = app.Services.CreateScope())
 {
     var context = scope.ServiceProvider.GetRequiredService<AppDbContext>();
     var passwordService = scope.ServiceProvider.GetRequiredService<IPasswordService>();
 
-    if (!context.Gerentes.Any())
+    if(!context.Gerentes.Any())
     {
         var admin = new ControleEstoque.API.Models.Gerente
         {
