@@ -21,5 +21,7 @@ namespace ControleEstoque.API.Models
         [ForeignKey("Produto")]
         public int ProdutoId { get; set; }
         public Produto Produto { get; set; }
+        
+        
     }
 }

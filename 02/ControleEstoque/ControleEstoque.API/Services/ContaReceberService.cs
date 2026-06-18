@@ -114,6 +114,7 @@ namespace ControleEstoque.API.Services
                 conta.Status = dto.Status;
                 conta.ClienteId = dto.ClienteId;
 
+
                 _context.ContasReceber.Update(conta);
                 await _context.SaveChangesAsync();
             }

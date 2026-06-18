@@ -6,12 +6,14 @@ namespace ControleEstoque.API.DTOs
         public DateTime DataPedido { get; set; }
         public string Status { get; set; } = string.Empty;
         public int? ClienteId { get; set; }
+        public int FormaPagamentoId { get; set; }
         public decimal Total => Itens.Sum(i => i.Quantidade * i.PrecoUnitario);
         public List<ItemPedidoDto> Itens { get; set; } = new();
     }
 
     public class CriarPedidoDto
     {
+        public int FormaPagamentoId { get; set; }
         public List<CriarItemPedidoDto> Itens { get; set; } = new();
     }
 
@@ -36,6 +38,8 @@ namespace ControleEstoque.API.DTOs
         public DateTime DataPedido { get; set; }
         public string Status { get; set; } = string.Empty;
         public int? ClienteId { get; set; }
+        public int FormaPagamentoId { get; set; }
+        public string FormaPagamentoDescricao { get; set; } = string.Empty;
         public decimal Total { get; set; }
         public List<ItemPedidoDto> Itens { get; set; } = new();
     }

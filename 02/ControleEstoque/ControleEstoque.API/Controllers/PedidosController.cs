@@ -78,6 +78,7 @@ namespace ControleEstoque.API.Controllers
                     novoPedido.Id, 
                     novoPedido.Status, 
                     novoPedido.DataPedido 
+
                 });
             }
             catch (Exception ex)
